@@ -1,0 +1,402 @@
+// useful color
+$pink: #ff405c;
+$blue: #31ceff;
+$black: rgb(58, 58, 58);
+
+// aniamte 
+// in aniamte guide : ( max delay + time: free )
+@mixin animate_in($aniamteTime, $delayTime) {
+	opacity: 0;
+	animation: textInAniamte $aniamteTime;
+	animation-delay: $delayTime;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+// out aniamte guide : ( max delay + time: 1s) 
+@mixin animate_out($aniamteTime, $delayTime) {
+	opacity: 1;
+	animation: textOutAniamte $aniamteTime;
+	animation-delay: $delayTime;
+	animation-timing-function: ease;
+	animation-fill-mode: forwards;
+}
+
+.App_page {
+	&_main, &_1, &_2 {
+		position: absolute;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		width: calc(100vw - 5vh);
+		height: 90vh;
+		top: 5vh;
+		left: 5vh;
+		> .wrap_content, .wrap_content_01 {
+			> * {
+				width: calc(100% - 130px);
+				margin-left: 130px;
+			}
+		}
+	}
+
+  	&_main {
+		.wrap_content {
+			position: absolute;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			background: #fff;
+			width: 0;
+			height: 90vh;
+			overflow: hidden;
+
+		}
+		.title {
+			position: relative;
+			width: 700px;
+			font-size: 60px;
+			font-weight: 700;
+			line-height: 1.4;
+			@include animate_in(0.8s, 0.3s);
+			span {
+				color: $pink;
+			}
+		}
+		.text {
+			position: relative;
+			width: 450px;
+    		margin-top: 20px;
+			font-size: 20px;
+			line-height: 1.4;
+			@include animate_in(0.8s, 0.4s);
+		}
+		&.close {
+			.wrap_content {
+				width: 0;
+			}
+			.title {
+				@include animate_out(0.8s, 0);
+			}
+			.text {
+				@include animate_out(0.8s, 0);
+			}
+		}
+	}
+
+	&_1 {
+		color: #fff;
+		.main_title {
+			position: relative;
+			font-size: 60px;
+			font-weight: 700;
+			line-height: 1.4;
+			@include animate_in(0.5s, 0.4s);
+		}
+		.wrap_text {
+			max-width: 1200px;
+		}
+		ul {
+			li {
+				position: relative;
+				display: inline-block;
+				width: 30%;
+				min-height: 146px;
+				vertical-align: top;
+				margin-top: 80px;
+				@include animate_in(0.7s, 0);
+				@for $i from 1 to 7 {
+					&:nth-child(#{$i}) { 
+						animation-delay: ($i * 0.05s) + 0.5s; 
+					}
+				}
+				.graph {
+					position: absolute;
+					height: 150%;
+					bottom: 0;
+					width: max-content;
+					span {
+						position: absolute;
+						display: inline-block;
+						width: 100px;
+						bottom: 0;
+						background-color: #7448ff;
+						margin-right: 15px;
+						border-top: 2px solid $blue;
+						font-size: 20px;
+						text-align: center;
+						line-height: 2.5;
+						vertical-align: bottom;
+						// @include animate_in(0.2s, 0);
+						@for $i from 0 to 3 {
+							&:nth-child(#{$i + 1}) { 
+								left: $i * 120px; 
+							}
+						}
+					}
+				}
+			}
+			p.sub_title {
+				position: relative;
+				padding-top: 35px;
+				font-size: 30px;
+				font-weight: 600;
+				width: 100%;
+				span {
+					color: $blue;
+				}
+
+				&:after {
+					content: "";
+					position: absolute;
+					width: 40px;
+					height: 2px;
+					top: 0;
+					left: 0;
+					background-color: $blue;	
+				}
+			}
+			p {
+				padding-top: 20px;
+				font-size: 20px;
+				line-height: 1.3;
+				width: 170px;
+			}
+			li:nth-child(3n) { 
+				p {
+					width: 100%;
+				}
+			}
+		}
+		&.close {
+			.main_title {
+				@include animate_out(0.5s, 0);
+			}
+			ul li {
+				@include animate_out(0.6s, 0);
+				@for $i from 1 to 7 {
+					&:nth-child(#{$i}) { 
+						animation-delay: ($i * 0.05s)
+					}
+				}
+			}
+		}
+
+	}
+
+
+  	&_2 {
+		.wrap_content_01 {
+			position: absolute;
+			color: #fff;
+			.main_title {
+				position: relative;
+				font-size: 60px;
+				font-weight: 700;
+				line-height: 1.4;
+				@include animate_in(0.5s, 0.4s);
+			}
+			&.next {
+				.main_title {
+					@include animate_out(0.4s, 0);
+				}
+				.wrap_title {
+					@include animate_out(0.5s, 0);
+				}
+				.wrap_text {
+					@include animate_out(0.6s, 0);
+				}
+				.go_btn {
+					animation: buttonOutAniamte 0.3s;
+					animation-fill-mode: forwards;
+					
+				}
+			}
+			&.end {
+				.wrap_title {
+					@include animate_in(0.6s, 0s);
+				}
+				.wrap_text {
+					@include animate_in(0.6s, 0.1s);
+				}
+				.go_btn {
+					animation: buttonInAniamte 0.3s;
+					animation-delay: 0.3s;
+					animation-fill-mode: forwards;
+					
+				}
+			}
+		}
+
+		.preview {
+			position: relative;
+			padding-left: 120px;
+			.wrap_title {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				height: 80px;
+				margin-top: 40px;
+				@include animate_in(0.8s, 0.5s);
+				.icon {
+					position: absolute;
+					display: inline-block;
+					width: 80px; 
+					height: 80px;
+					left: -120px; 
+					border-radius: 10px;
+					background-color: rgba(255, 255, 255, 0.2);
+				}
+				.title {
+					font-size: 25px;
+					font-weight: 600;
+				}
+				.sub_title {
+					margin-top: 5px; 
+				}
+			}
+			.wrap_text {
+				position: relative;
+				@include animate_in(1s, 0.5s);
+				.sub_text {
+					margin-top: 30px;
+					font-size: 20px;
+					font-weight: 600;
+					span {
+						color: $blue;
+					}
+				}
+
+				.text {
+					width: 450px;
+					margin-top: 30px;
+					font-size: 20px;
+					line-height: 1.5;
+					max-height: 180px;
+					overflow: hidden;
+					// display: -webkit-box;
+					// -webkit-box-orient: vertical;
+					// -webkit-line-clamp: 6;
+					// text-overflow: ellipsis;
+				}
+			}
+			.go_btn {
+				display: inline-block;
+				background-color: #fff;
+				color: $black;
+				width:150px;
+				padding: 20px 0;
+				margin-top: 30px;
+				font-weight: 700;
+				white-space: nowrap;
+				overflow: hidden;
+				clip-path: inset(0 100% 0 0);
+				animation: buttonInAniamte 0.3s;
+				animation-delay: 0.8s;
+				animation-fill-mode: forwards;
+			}
+		}
+
+		.wrap_content_02 {
+			position: absolute;
+			background: #fff;
+			width: 0;
+			height: 90vh;
+			right: 5vh;
+			overflow-x: hidden;
+			overflow-y: scroll;
+			ul {
+				position: relative;
+				padding: 80px 50px 0 50px;
+				@include animate_in(1s, 0.3s);
+				li {
+					width: calc(100% - 80px);
+					padding: 35px 40px;
+					font-size: 18px;
+					font-weight: 600;
+					color: rgb(58, 58, 58);
+					white-space: nowrap;
+					transition: 0.5s;
+					cursor: pointer;
+					span {
+						margin-right: 50px;
+					}
+					&.active {
+						background: #fbfbfb;
+						color: $pink;
+						span {
+							color: transparent;
+							background: url("../../img/arrow-pointing-to-right.svg") no-repeat center;
+							background-size: contain;
+						}
+					}
+					&:hover {
+						background: #fbfbfb;
+						color: $pink;
+						transition: 0.2s;
+					}
+				}
+			}
+		}
+		&.close {
+			.wrap_content_01 {
+				.main_title {
+					@include animate_out(0.5s, 0);
+				}
+				.wrap_title {
+					@include animate_out(0.7s, 0);
+				}
+				.wrap_text {
+					@include animate_out(0.9s, 0);
+				}
+				.go_btn {
+					animation: buttonOutAniamte 0.3s;
+					animation-fill-mode: forwards;
+					
+				}
+			}
+			ul {
+				@include animate_out(0, 0);
+			}
+		}
+  	}
+}
+
+
+// width ~1400
+// @media()
+
+
+@keyframes textOutAniamte {
+	from {top: 0; opacity: 1;}
+	to {top: -80px; opacity: 0;}
+}
+
+
+@keyframes textInAniamte {
+	from {top: 100px; opacity: 0;}
+	to {top: 0; opacity: 1;}
+}
+
+@keyframes buttonOutAniamte {
+	from {clip-path: inset(0 0 0 0);}
+	to {clip-path: inset(0 0 0 100%);}
+}
+
+@keyframes buttonInAniamte {
+	from {clip-path: inset(0 100% 0 0);}
+	to {clip-path: inset(0 0 0 0);}
+}
+
+@keyframes graphInAniamte {
+	0% {height: 0;}
+	100% {height: auto;}
+}
+
+@keyframes buttonNextAniamte {
+	0% {clip-path: inset(0 0 0 0);}
+	50% {clip-path: inset(0 0 0 100%);}
+	51% {clip-path: inset(0 100% 0 0);}
+	100% {clip-path: inset(0 0 0 0%);}
+}

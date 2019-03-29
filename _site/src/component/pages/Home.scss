@@ -1,0 +1,15 @@
+.App-page {
+  &-main {
+    width:1280px;
+    margin: 0 auto;
+    height: 100vh;
+    &-box {
+      position: relative;
+      background: white;
+      width: 0;
+      height: 90vh;
+      top: 5vh;
+      overflow: hidden;
+    }
+  }
+}
