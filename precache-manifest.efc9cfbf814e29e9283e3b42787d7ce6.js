@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "410dfb7d6dd58a21f0957246e755c621",
-    "url": "/201903_react_app/static/media/manrope-medium.410dfb7d.woff"
+    "revision": "99ff178f8f435f777c965fe41fec1785",
+    "url": "/201903_react_app/static/media/manrope-medium.99ff178f.woff2"
   },
   {
     "revision": "9bbf3c7376add7851d99",
@@ -36,24 +36,24 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-bold.04840533.woff"
   },
   {
+    "revision": "66920dba60cc5a4d670d7c6dcf3353cb",
+    "url": "/201903_react_app/static/media/manrope-bold.66920dba.otf"
+  },
+  {
     "revision": "df6d8ee6dd563ee1cd8cd1fb945faa94",
     "url": "/201903_react_app/static/media/manrope-semibold.df6d8ee6.woff2"
+  },
+  {
+    "revision": "64ade80d3bb2ca2780aedfa76fc7c23f",
+    "url": "/201903_react_app/static/media/manrope-semibold.64ade80d.woff"
   },
   {
     "revision": "c0554e2b8bb02206b4da18a95c411b93",
     "url": "/201903_react_app/static/media/manrope-semibold.c0554e2b.otf"
   },
   {
-    "revision": "66920dba60cc5a4d670d7c6dcf3353cb",
-    "url": "/201903_react_app/static/media/manrope-bold.66920dba.otf"
-  },
-  {
-    "revision": "99ff178f8f435f777c965fe41fec1785",
-    "url": "/201903_react_app/static/media/manrope-medium.99ff178f.woff2"
-  },
-  {
-    "revision": "64ade80d3bb2ca2780aedfa76fc7c23f",
-    "url": "/201903_react_app/static/media/manrope-semibold.64ade80d.woff"
+    "revision": "410dfb7d6dd58a21f0957246e755c621",
+    "url": "/201903_react_app/static/media/manrope-medium.410dfb7d.woff"
   },
   {
     "revision": "9bbf3c7376add7851d99",
@@ -84,16 +84,16 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-light.e3d90821.woff"
   },
   {
+    "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
+    "url": "/201903_react_app/static/media/manrope-light.8081a585.otf"
+  },
+  {
     "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
     "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
   },
   {
     "revision": "429b51e99f919c8a738a2274d4fa7e6c",
     "url": "/201903_react_app/static/media/manrope-thin.429b51e9.woff"
-  },
-  {
-    "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
-    "url": "/201903_react_app/static/media/manrope-light.8081a585.otf"
   },
   {
     "revision": "61c7ff7b2e0019baaffa26b967fab5ba",
