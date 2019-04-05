@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { TweenLite, Expo } from "gsap/all";
-import './Pages.scss';
+import React from 'react';
+// import { TweenLite, Expo } from "gsap/all";
 
-
-class Home extends Component {
+class Home extends React.Component {
 	componentDidMount() {
 		if (this.props.currentPage === 0) {
 			setTimeout(() => {
@@ -18,17 +16,18 @@ class Home extends Component {
 	}
 
 	_openAnimate = () => {
+		window.scrollTo(0, 0)
 		this.a.className = "App_page_main open"
-		TweenLite.to(this.animateBox, 1, {
-			width: "1000px", ease: Expo.easeInOut, onComplete: () => {console.log("done")}
-		}, );
+		// TweenLite.to(this.animateBox, 1, {
+		// 	width: "1000%", ease: Expo.easeInOut, onComplete: () => {console.log("done")}
+		// }, );
 	}
 
 	_closeAnimate = () => {
 		this.a.className = "App_page_main close"
-		TweenLite.to(this.animateBox, 1, {
-			width: 0, ease: Expo.easeInOut
-		});
+		// TweenLite.to(this.animateBox, 1, {
+		// 	width: 0, ease: Expo.easeInOut
+		// });
 	}
 
 	render() {

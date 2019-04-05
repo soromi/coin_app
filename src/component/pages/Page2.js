@@ -1,15 +1,14 @@
-import React, { Component } from 'react';
-import { TweenLite, Expo } from "gsap/all";
+import React from 'react';
 import post from '../../data/post_data.json';
-import './Pages.scss';
 
-class Page2 extends Component {
+class Page2 extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             prevPost : null,
             currentPost : 0,
             animateIng : false,
+            showList: false,
         };
     }
 
@@ -23,45 +22,67 @@ class Page2 extends Component {
     }
 
     _openAnimate = () => {
-        this.a.className = "App_page_2 open"
-        TweenLite.to(this.animateBox, 1, {
-            width: "500px", 
-            ease: Expo.easeInOut, 
-            onComplete: () => { console.log("done"); }
-        }, );
+        window.scrollTo(0, 0)
+        this.main.className = "App_page_2 open"
     }
 
     _closeAnimate = () => {
-        this.a.className = "App_page_2 close"
-        TweenLite.to(this.animateBox, 1, {
-            width: 0, 
-            ease: Expo.easeInOut,
-        });
+        this.main.className = "App_page_2 close"
     }
 
     _changePost = (n) => {
         if ((this.state.currentPost === n) || (this.state.animateIng)) return;
-        this.b.className = "wrap_content_01 next"
+        this.content.className = "wrap_content_01 next"
         this.setState({
             ...this.state,
             animateIng: true,
         })
 
         setTimeout(() => {
-            this.b.className = "wrap_content_01 end"
+            this.content.className = "wrap_content_01 end"
             this.setState({
+                ...this.state,
                 prevPost: this.state.currentPost,
                 currentPost: n,
                 animateIng: false,
             })
+        }, 500);
+    }
 
+    _nextPost = () => {
+        if (this.state.currentPost === post.length - 1) return
+        this._changePost(this.state.currentPost + 1)
+    }
+
+    _prevPost = () => {
+        if (this.state.currentPost === 0) return
+        this._changePost(this.state.currentPost - 1)
+    }
+
+    _showList = () => {
+        if (this.state.animateIng) return;
+        if (!this.state.showList) this.list.className = "wrap_content_02 show"
+        else this.list.className = "wrap_content_02 hide"
+
+        this.setState({
+            ...this.state,
+            showList: !this.state.showList,
+            animateIng: true,
+        })
+
+        setTimeout(() => {
+            this.content.className = "wrap_content_01 end"
+            this.setState({
+                ...this.state,
+                animateIng: false,
+            })
         }, 500);
     }
 
     render() {
 		return (
-            <div className="App_page_2 close" ref={main => this.a = main}>
-                <div className="wrap_content_01" ref={content => this.b = content}>
+            <div className="App_page_2 close" ref={main => this.main = main}>
+                <div className="wrap_content_01" ref={content => this.content = content}>
                     {(this.state.prevPost === null) ? <h1 className="main_title">See what's Trending</h1> : null }
                     <div className="preview">
                         <div className="wrap_title">
@@ -74,10 +95,16 @@ class Page2 extends Component {
                             <p className="text">{post[this.state.currentPost].text}</p>
                         </div>
                         <button className="go_btn">Purchaes Now</button>
+
+                        <div className="wrap_post_btn">
+                            <button className={`prev_btn ${(this.state.currentPost === 0) ? "lock" : ""}`} onClick={() => { this._prevPost() }}>prev</button>
+                            <button className={`next_btn ${(this.state.currentPost === post.length - 1) ? "lock" : ""}`} onClick={() => { this._nextPost() }}>next</button>
+                            <button className="show_list_btn" onClick={() => { this._showList() }}>show list</button>
+                        </div>
                     </div>
                 </div>
 
-                <div className="wrap_content_02" ref={div => this.animateBox = div}>
+                <div className="wrap_content_02" ref={list => this.list = list}>
                     <ul>
                         {post.map((value, i) => {
                             let className = (this.state.currentPost === i ? "active" : "");
@@ -92,4 +119,3 @@ class Page2 extends Component {
 }
 
 export default Page2;
-// export default connect(mapStateToProps, mapDispatchToProps)(Page2);

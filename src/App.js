@@ -1,32 +1,22 @@
-import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { aniamteEnd} from './actions/simpleAction';
+import React from 'react';
 
 import './App.scss';
+import './component/pages/Pages.scss';
 import Home from './component/pages/Home';
 import Page1 from './component/pages/Page1';
 import Page2 from './component/pages/Page2';
 
-// const mapStateToProps = state => ({
-// 	...state
-// })
-
-// const mapDispatchToProps = dispatch => ({
-// 	aniamteEnd: () => dispatch(aniamteEnd()),
-// })
-
-
-class App extends Component {
+class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			prevPage: null,
-			currentPage: 2,
+			currentPage: 0,
 			animateIng: false,
 		};
 	}
-
-	cc = (n) => {
+	
+	_changeCurrnetPage = (n) => {
 		if ((this.state.currentPage === n ) || (this.state.animateIng)) return;
 		this._page_move();
 		this.setState((state, props) => { 
@@ -51,12 +41,12 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<nav>
-					<ul className="nav">
+				<nav className={(this.state.currentPage === 0) ?"color" : ""}>
+					<ul>
 						<li className="logo">logo</li>
-						<li onClick={() => {this.cc(0)}}>About</li>
-						<li onClick={() => {this.cc(1)}}>Loadmap</li>
-						<li onClick={() => {this.cc(2)}}>What's Trending</li>
+						<li onClick={() => {this._changeCurrnetPage(0)}}>About</li>
+						<li onClick={() => {this._changeCurrnetPage(1)}}>Loadmap</li>
+						<li onClick={() => {this._changeCurrnetPage(2)}}>What's Trending</li>
 					</ul>
 				</nav>
 				{(this.state.animateIng && this.state.prevPage === 0) || this.state.currentPage === 0 ? <Home currentPage={this.state.currentPage} /> : null }
@@ -68,5 +58,3 @@ class App extends Component {
 }
 
 export default App;
-// export default connect()(App);
-// export default connect(mapStateToProps, mapDispatchToProps)(App);

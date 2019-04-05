@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import './Pages.scss';
+import React from 'react';
 
 class Page1 extends React.Component {
     componentDidMount() {
+        window.scrollTo(0, 0)
         if (this.props.currentPage === 1) this._openAnimate();
     }
 
@@ -13,8 +13,8 @@ class Page1 extends React.Component {
 
 
     _openAnimate = () => {
+        window.scrollTo(0, 0)
         this.a.className = "App_page_1 open"
-
     }
 
     _closeAnimate = () => {
