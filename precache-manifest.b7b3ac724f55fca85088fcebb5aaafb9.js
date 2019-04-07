@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.410dfb7d.woff"
   },
   {
-    "revision": "e0605a8fd5949b2e7476",
-    "url": "/201903_react_app/static/css/main.2647b7cf.chunk.css"
+    "revision": "61f28012032feed415ca",
+    "url": "/201903_react_app/static/css/main.ba898364.chunk.css"
   },
   {
     "revision": "f1d42013e4f40b5f4f32",
     "url": "/201903_react_app/static/js/runtime~main.f1d42013.js"
   },
   {
-    "revision": "0362b9d6bd8f5bf6bc61",
-    "url": "/201903_react_app/static/js/2.0362b9d6.chunk.js"
+    "revision": "320e9c1925ff4245fddb",
+    "url": "/201903_react_app/static/js/2.320e9c19.chunk.js"
   },
   {
     "revision": "8937042bde86c0256b08e73acca7aab5",
@@ -28,20 +28,20 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-extrabold.43fd4aa4.otf"
   },
   {
-    "revision": "04840533afe786bf4a141843fe7845d5",
-    "url": "/201903_react_app/static/media/manrope-bold.04840533.woff"
-  },
-  {
     "revision": "945fc26cc8dfb0a70091e154ca2506e8",
     "url": "/201903_react_app/static/media/manrope-bold.945fc26c.woff2"
   },
   {
-    "revision": "66920dba60cc5a4d670d7c6dcf3353cb",
-    "url": "/201903_react_app/static/media/manrope-bold.66920dba.otf"
+    "revision": "04840533afe786bf4a141843fe7845d5",
+    "url": "/201903_react_app/static/media/manrope-bold.04840533.woff"
   },
   {
     "revision": "df6d8ee6dd563ee1cd8cd1fb945faa94",
     "url": "/201903_react_app/static/media/manrope-semibold.df6d8ee6.woff2"
+  },
+  {
+    "revision": "66920dba60cc5a4d670d7c6dcf3353cb",
+    "url": "/201903_react_app/static/media/manrope-bold.66920dba.otf"
   },
   {
     "revision": "64ade80d3bb2ca2780aedfa76fc7c23f",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.99ff178f.woff2"
   },
   {
-    "revision": "e0605a8fd5949b2e7476",
-    "url": "/201903_react_app/static/js/main.e0605a8f.chunk.js"
+    "revision": "61f28012032feed415ca",
+    "url": "/201903_react_app/static/js/main.61f28012.chunk.js"
   },
   {
     "revision": "2b3a2bf4c6fc35ad02f06ec319e8f1d0",
@@ -84,12 +84,12 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-light.e3d90821.woff"
   },
   {
-    "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
-    "url": "/201903_react_app/static/media/manrope-light.8081a585.otf"
-  },
-  {
     "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
     "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
+  },
+  {
+    "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
+    "url": "/201903_react_app/static/media/manrope-light.8081a585.otf"
   },
   {
     "revision": "429b51e99f919c8a738a2274d4fa7e6c",
@@ -108,7 +108,7 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg"
   },
   {
-    "revision": "22b192ee38aaa1d1f22f6a537d40cdff",
+    "revision": "9214dce1acd51a61092bcf531d3b775d",
     "url": "/201903_react_app/index.html"
   }
 ];
