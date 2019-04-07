@@ -73,8 +73,13 @@ html, body, #root, .App {
 	height: 100%;
 	word-break: keep-all;
 	font-family: "Manrope", sans-serif;
-	overflow: hidden;
+	scrollbar-width: none; 
+	-ms-overflow-style: none;
+	&::-webkit-scrollbar { 
+		display: none; 
+	}
 }
+
 body {
 	background: linear-gradient(135deg, $purple1 0%, $purple2 100%);
 	background-size: 100%;
