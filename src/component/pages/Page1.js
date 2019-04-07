@@ -14,17 +14,17 @@ class Page1 extends React.Component {
 
     _openAnimate = () => {
         window.scrollTo(0, 0)
-        this.a.className = "App_page_1 open"
+        this.main.className = "App_page_1 open"
     }
 
     _closeAnimate = () => {
-        this.a.className = "App_page_1 close"
+        this.main.className = "App_page_1 close"
 
     }
 
     render() {
         return (
-            <div className="App_page_1 close" ref={main => this.a = main}>
+            <div className="App_page_1 close" ref={main => this.main = main}>
                 <div className="wrap_content">
                     <h1 className="main_title">Token Distribution</h1>
                     <div className="wrap_text">

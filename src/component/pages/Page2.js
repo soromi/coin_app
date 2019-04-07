@@ -37,7 +37,7 @@ class Page2 extends React.Component {
             ...this.state,
             animateIng: true,
         })
-
+        
         setTimeout(() => {
             this.content.className = "wrap_content_01 end"
             this.setState({
