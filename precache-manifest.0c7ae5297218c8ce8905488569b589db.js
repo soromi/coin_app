@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.410dfb7d.woff"
   },
   {
-    "revision": "e558a4fd849eda17a2a2",
+    "revision": "e0605a8fd5949b2e7476",
     "url": "/201903_react_app/static/css/main.2647b7cf.chunk.css"
   },
   {
@@ -28,12 +28,12 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-extrabold.43fd4aa4.otf"
   },
   {
-    "revision": "945fc26cc8dfb0a70091e154ca2506e8",
-    "url": "/201903_react_app/static/media/manrope-bold.945fc26c.woff2"
-  },
-  {
     "revision": "04840533afe786bf4a141843fe7845d5",
     "url": "/201903_react_app/static/media/manrope-bold.04840533.woff"
+  },
+  {
+    "revision": "945fc26cc8dfb0a70091e154ca2506e8",
+    "url": "/201903_react_app/static/media/manrope-bold.945fc26c.woff2"
   },
   {
     "revision": "66920dba60cc5a4d670d7c6dcf3353cb",
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.99ff178f.woff2"
   },
   {
-    "revision": "e558a4fd849eda17a2a2",
-    "url": "/201903_react_app/static/js/main.e558a4fd.chunk.js"
+    "revision": "e0605a8fd5949b2e7476",
+    "url": "/201903_react_app/static/js/main.e0605a8f.chunk.js"
   },
   {
     "revision": "2b3a2bf4c6fc35ad02f06ec319e8f1d0",
@@ -84,12 +84,12 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-light.e3d90821.woff"
   },
   {
-    "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
-    "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
-  },
-  {
     "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
     "url": "/201903_react_app/static/media/manrope-light.8081a585.otf"
+  },
+  {
+    "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
+    "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
   },
   {
     "revision": "429b51e99f919c8a738a2274d4fa7e6c",
@@ -108,7 +108,7 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg"
   },
   {
-    "revision": "5293fbff011b3ce5706cf58a30eec409",
+    "revision": "22b192ee38aaa1d1f22f6a537d40cdff",
     "url": "/201903_react_app/index.html"
   }
 ];
