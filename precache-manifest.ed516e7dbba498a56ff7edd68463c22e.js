@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.410dfb7d.woff"
   },
   {
-    "revision": "a164d08dc7db2e019884",
+    "revision": "39d2d5f439bc318e2714",
     "url": "/201903_react_app/static/css/main.2647b7cf.chunk.css"
   },
   {
@@ -56,8 +56,8 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-medium.99ff178f.woff2"
   },
   {
-    "revision": "a164d08dc7db2e019884",
-    "url": "/201903_react_app/static/js/main.a164d08d.chunk.js"
+    "revision": "39d2d5f439bc318e2714",
+    "url": "/201903_react_app/static/js/main.39d2d5f4.chunk.js"
   },
   {
     "revision": "2b3a2bf4c6fc35ad02f06ec319e8f1d0",
@@ -72,20 +72,20 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-regular.0c37f3e7.woff"
   },
   {
-    "revision": "1a035185280028c4fa857d8a3e210188",
-    "url": "/201903_react_app/static/media/manrope-light.1a035185.woff2"
-  },
-  {
     "revision": "48630a9280dc7ea63a88f0bee5d02cd1",
     "url": "/201903_react_app/static/media/manrope-regular.48630a92.otf"
   },
   {
-    "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
-    "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
+    "revision": "1a035185280028c4fa857d8a3e210188",
+    "url": "/201903_react_app/static/media/manrope-light.1a035185.woff2"
   },
   {
     "revision": "e3d90821a2775946e39e16c8eecdb18c",
     "url": "/201903_react_app/static/media/manrope-light.e3d90821.woff"
+  },
+  {
+    "revision": "f2c223600b691e47b3d4405e0b2e1c2f",
+    "url": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
   },
   {
     "revision": "8081a585530dcaa8c59b8be7fba1cbe8",
@@ -100,15 +100,15 @@ self.__precacheManifest = [
     "url": "/201903_react_app/static/media/manrope-thin.61c7ff7b.otf"
   },
   {
-    "revision": "076cbc0b08eed5d674aee53e3b643c0e",
-    "url": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg"
-  },
-  {
     "revision": "1e9f57a9d351014442e5504c87e18d9e",
     "url": "/201903_react_app/static/media/arrow-pointing-to-right-white.1e9f57a9.svg"
   },
   {
-    "revision": "47ad6c5fb4f749b275fb5b12074ee5b1",
+    "revision": "076cbc0b08eed5d674aee53e3b643c0e",
+    "url": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg"
+  },
+  {
+    "revision": "aa781575ad8bfa9e2f9c49483416bca8",
     "url": "/201903_react_app/index.html"
   }
 ];
