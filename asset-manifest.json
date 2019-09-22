@@ -1,15 +1,17 @@
 {
-  "main.css": "/201903_react_app/static/css/main.f1d5b85e.chunk.css",
-  "main.js": "/201903_react_app/static/js/main.4a88e148.chunk.js",
-  "main.js.map": "/201903_react_app/static/js/main.4a88e148.chunk.js.map",
-  "runtime~main.js": "/201903_react_app/static/js/runtime~main.f1d42013.js",
-  "runtime~main.js.map": "/201903_react_app/static/js/runtime~main.f1d42013.js.map",
-  "static/js/2.db7107cb.chunk.js": "/201903_react_app/static/js/2.db7107cb.chunk.js",
-  "static/js/2.db7107cb.chunk.js.map": "/201903_react_app/static/js/2.db7107cb.chunk.js.map",
-  "index.html": "/201903_react_app/index.html",
-  "precache-manifest.a426616545382b6cb88c1c63bf761f5e.js": "/201903_react_app/precache-manifest.a426616545382b6cb88c1c63bf761f5e.js",
-  "service-worker.js": "/201903_react_app/service-worker.js",
-  "static/css/main.f1d5b85e.chunk.css.map": "/201903_react_app/static/css/main.f1d5b85e.chunk.css.map",
-  "static/media/Pages.scss": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg",
-  "static/media/App.scss": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
+  "files": {
+    "main.css": "/coin_app/static/css/main.be9de4cc.chunk.css",
+    "main.js": "/coin_app/static/js/main.05785686.chunk.js",
+    "main.js.map": "/coin_app/static/js/main.05785686.chunk.js.map",
+    "runtime~main.js": "/coin_app/static/js/runtime~main.86821510.js",
+    "runtime~main.js.map": "/coin_app/static/js/runtime~main.86821510.js.map",
+    "static/js/2.fd168f7a.chunk.js": "/coin_app/static/js/2.fd168f7a.chunk.js",
+    "static/js/2.fd168f7a.chunk.js.map": "/coin_app/static/js/2.fd168f7a.chunk.js.map",
+    "index.html": "/coin_app/index.html",
+    "precache-manifest.df0ba145c0a576b7b6dc21671e07a47a.js": "/coin_app/precache-manifest.df0ba145c0a576b7b6dc21671e07a47a.js",
+    "service-worker.js": "/coin_app/service-worker.js",
+    "static/css/main.be9de4cc.chunk.css.map": "/coin_app/static/css/main.be9de4cc.chunk.css.map",
+    "static/media/Pages.scss": "/coin_app/static/media/arrow-pointing-to-right.076cbc0b.svg",
+    "static/media/App.scss": "/coin_app/static/media/manrope-thin.f2c22360.woff2"
+  }
 }
