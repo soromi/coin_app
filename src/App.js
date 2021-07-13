@@ -1,15 +1,13 @@
 import React from 'react';
 import { HashRouter as Router, Link } from "react-router-dom";
 
-import './App.scss';
-import './component/pages/Pages.scss';
 import Home from './component/pages/Home';
 import Page1 from './component/pages/Page1';
 import Page2 from './component/pages/Page2';
 import NotFound from './component/pages/NotFound';
 
-
-
+import './assets/style/App.scss';
+import './component/pages/Pages.scss';
 class App extends React.Component {
 	constructor(props) {
 		super(props);
