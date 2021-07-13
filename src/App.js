@@ -1,89 +1,67 @@
-import React from 'react';
-import { HashRouter as Router, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import Home from './component/pages/Home';
-import Page1 from './component/pages/Page1';
-import Page2 from './component/pages/Page2';
-import NotFound from './component/pages/NotFound';
+import Nav from "./component/Nav";
+import Home from "./pages/Home";
+import Page1 from "./pages/Page1";
+import Page2 from "./pages/Page2";
+import NotFound from "./pages/NotFound";
 
-import './assets/style/App.scss';
-import './component/pages/Pages.scss';
-class App extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			prevPage: null,
-			currentPage: null,
-			animateIng: false,
-		};
-	}
-	componentDidMount = () => {
-		this._checkPage();
-	}
-	
-	_checkPage = () => {
-		switch (window.location.hash) {
-			case "#/":
-			case "#/about":
-				this.setState({currentPage: 0})
-				break;
-			
-			case "#/loadmap":
-				this.setState({currentPage: 1})
-				break;
+const App = () => {
+  const [prevPage, setPrevPage] = useState(null);
+  const [currentPage, setCurrentPage] = useState(null);
+  const [animateIng, setAnimateIng] = useState(false);
 
-			case "#/trending":
-				this.setState({currentPage: 2})
-				break;
-		
-			default:
-				this.setState({ currentPage: -1 })
-				break;
-		}
-	}
-	
-	_changeCurrnetPage = (n) => {
-		if ((this.state.currentPage === n ) || (this.state.animateIng)) return;
-		this._page_move();
-		this.setState((state, props) => { 
-			return { 
-				prevPage: this.state.currentPage,
-				currentPage: n,
-				animateIng: true,
-			}
-		}); 
-	}
+  useEffect(() => {
+    _checkPage();
+  }, []);
 
-	_page_move = (n) => {
-		setTimeout(() => {
-			this.setState({
-				prevPage: this.state.prevPage,
-				currentPage: this.state.currentPage,
-				animateIng: false 
-			})
-		}, 1000);
-	}
+  const _checkPage = () => {
+    switch (window.location.pathname) {
+      case "/":
+      case "/about":
+        setCurrentPage(0);
+        break;
 
-	render() {
-		return (
-			<Router>
-				<div className="App">
-					<nav className={(this.state.currentPage === 0) ?"color" : ""}>
-						<ul>
-							<li className="logo">logo</li>
-							<li>{(!this.state.animateIng) ? <Link to="about" onClick={() => this._changeCurrnetPage(0)}>About</Link>: "About" }</li>
-							<li>{(!this.state.animateIng) ? <Link to="loadmap" onClick={() => this._changeCurrnetPage(1)}>Loadmap</Link>: "Loadmap" }</li>
-							<li>{(!this.state.animateIng) ? <Link to="trending" onClick={() => this._changeCurrnetPage(2)}>What's Trending</Link>: "What's Trending" }</li>
-						</ul>
-					</nav>
-					{(this.state.animateIng && this.state.prevPage === 0) || this.state.currentPage === 0 ? <Home currentPage={this.state.currentPage} /> : null}
-					{(this.state.animateIng && this.state.prevPage === 1) || this.state.currentPage === 1 ? <Page1 currentPage={this.state.currentPage} /> : null}
-					{(this.state.animateIng && this.state.prevPage === 2) || this.state.currentPage === 2 ? <Page2 currentPage={this.state.currentPage} /> : null}
-					{(this.state.currentPage === -1) ? <NotFound /> : null}
-				</div>
-			</Router>
-		);
-	}
-}
+      case "/loadmap":
+        setCurrentPage(1);
+        break;
+
+      case "/trending":
+        setCurrentPage(2);
+        break;
+
+      default:
+        setCurrentPage(-1);
+        break;
+    }
+  };
+
+  const _changeCurrnetPage = n => {
+    if (currentPage === n || animateIng) return;
+    _page_move();
+    setPrevPage(currentPage);
+    setCurrentPage(n);
+    setAnimateIng(true);
+  };
+
+  const _page_move = () => {
+    setTimeout(() => {
+      setAnimateIng(false);
+    }, 1000);
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Nav currentPage={currentPage} animateIng={animateIng} changeCurrnetPage={_changeCurrnetPage} />
+        {(animateIng && prevPage === 0) || currentPage === 0 ? <Home currentPage={currentPage} /> : null}
+        {(animateIng && prevPage === 1) || currentPage === 1 ? <Page1 currentPage={currentPage} /> : null}
+        {(animateIng && prevPage === 2) || currentPage === 2 ? <Page2 currentPage={currentPage} /> : null}
+        {currentPage === -1 ? <NotFound /> : null}
+      </div>
+    </Router>
+  );
+};
 
 export default App;

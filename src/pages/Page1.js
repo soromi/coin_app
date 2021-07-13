@@ -1,72 +1,76 @@
-import React from 'react';
+import React, { useEffect, useRef } from "react";
 
-class Page1 extends React.Component {
-    componentDidMount() {
-        window.scrollTo(0, 0)
-        if (this.props.currentPage === 1) this._openAnimate();
-    }
+const Page1 = ({ currentPage }) => {
+  const containerDom = useRef();
 
-    componentDidUpdate(prevProps, prevState) {
-        if (this.props.currentPage !== 1) this._closeAnimate()
-        else this._openAnimate()
-    }
+  const _openAnimate = () => {
+    window.scrollTo(0, 0);
+    containerDom.current.className = "App_page_1 open";
+  };
 
+  const _closeAnimate = () => {
+    containerDom.current.className = "App_page_1 close";
+  };
 
-    _openAnimate = () => {
-        window.scrollTo(0, 0)
-        this.main.className = "App_page_1 open"
-    }
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (currentPage === 1) _openAnimate();
+    else _closeAnimate();
+  }, [currentPage]);
 
-    _closeAnimate = () => {
-        this.main.className = "App_page_1 close"
+  return (
+    <div className="App_page_1 close" ref={containerDom}>
+      <div className="wrap_content">
+        <h1 className="main_title">Token Distribution</h1>
+        <div className="wrap_text">
+          <ul>
+            <li>
+              <p className="sub_title">
+                <span>92M</span> Token
+              </p>
+              <p>In Total.</p>
+            </li>
 
-    }
+            <li>
+              <p className="sub_title">
+                <span>12M</span> Token
+              </p>
+              <p>Issued at the ICO.</p>
+            </li>
 
-    render() {
-        return (
-            <div className="App_page_1 close" ref={main => this.main = main}>
-                <div className="wrap_content">
-                    <h1 className="main_title">Token Distribution</h1>
-                    <div className="wrap_text">
-                        <ul>
-                            <li>
-                                <p className="sub_title"><span>92M</span> Token</p>
-                                <p>In Total.</p>
-                            </li>
+            <li>
+              <p className="sub_title">
+                <span>Token Bonus</span> by Quant
+              </p>
+              <p>Bigger transactions get more tokens.</p>
+            </li>
 
-                            <li>
-                                <p className="sub_title"><span>12M</span> Token</p>
-                                <p>Issued at the ICO.</p>
-                            </li>
+            <li>
+              <p className="sub_title">
+                <span>16/9/2018</span>
+              </p>
+              <p>The starting date of the ICO.</p>
+            </li>
 
-                            <li>
-                                <p className="sub_title"><span>Token Bonus</span> by Quant</p>
-                                <p>Bigger transactions get more tokens.</p>
-                            </li>
+            <li>
+              <p className="sub_title">
+                <span>$12.03</span> / Token
+              </p>
+              <p>starting price for the first day.</p>
+            </li>
 
-                            <li>
-                                <p className="sub_title"><span>16/9/2018</span></p>
-                                <p>The starting date of the ICO.</p>
-                            </li>
-
-                            <li>
-                                <p className="sub_title"><span>$12.03</span> / Token</p>
-                                <p>starting price for the first day.</p>
-                            </li>
-
-                            <li>
-                                <div className="graph">
-                                    <span style={{ height: "39%" }}>39</span>
-                                    <span style={{ height: "72%" }}>72</span>
-                                    <span style={{ height: "33%" }}>33</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        );
-    }
-}
+            <li>
+              <div className="graph">
+                <span style={{ height: "39%" }}>39</span>
+                <span style={{ height: "72%" }}>72</span>
+                <span style={{ height: "33%" }}>33</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 export default Page1;

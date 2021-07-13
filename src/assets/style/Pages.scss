@@ -1,0 +1,1040 @@
+@charset "UTF-8";
+
+/* useful color */
+$pink: #ff405c;
+$blue: #31ceff;
+$purple: #7c1cff;
+$black: rgb(58, 58, 58);
+
+/* easing */
+$mainAnimateTime: 0.7s;
+$Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
+
+/* mixin common text aniamtion  */
+@mixin animate_in($aniamteTime, $delayTime) {
+  opacity: 0;
+  animation: textInAniamte $aniamteTime;
+  animation-delay: $delayTime;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@mixin animate_out($aniamteTime, $delayTime) {
+  opacity: 1;
+  animation: textOutAniamte $aniamteTime;
+  animation-delay: $delayTime;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+/* 
+	App_page's style
+	.App_page_main, .App_page_1, .App_page_2
+*/
+.App_page {
+  // common
+  &_main,
+  &_1,
+  &_2,
+  &_404 {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100vw - 10vh);
+    max-width: 1600px;
+    height: 90vh;
+    top: 5vh;
+    left: 5vh;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    color: #fff;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    > .wrap_content,
+    .wrap_content_01 {
+      > * {
+        width: calc(100% - 180px);
+        margin-left: calc(5vh + 80px);
+        margin-right: 50px;
+      }
+    }
+    .main_title {
+      position: relative;
+      font-size: 50px;
+      font-weight: 700;
+      line-height: 1.4;
+      @include animate_in(0.5s, 0.4s);
+    }
+  }
+
+  // App_page_main
+  &_main {
+    &.open .wrap_content {
+      animation: boxInAniamte $mainAnimateTime;
+      animation-fill-mode: forwards;
+      animation-timing-function: $Expo;
+    }
+    &.close .wrap_content {
+      animation: boxOutAniamte $mainAnimateTime;
+      animation-fill-mode: forwards;
+      animation-timing-function: $Expo;
+    }
+
+    .wrap_content {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background: #fff;
+      color: #000;
+      width: 1000px;
+      height: 90vh;
+      top: 0;
+      overflow: hidden;
+      clip-path: inset(0 100% 0 0);
+    }
+    .title {
+      position: relative;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 1.4;
+      @include animate_in(0.8s, 0.3s);
+      span {
+        color: $pink;
+      }
+    }
+    .text {
+      position: relative;
+      width: 450px;
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.7;
+      @include animate_in(0.8s, 0.4s);
+    }
+    &.close {
+      .title {
+        @include animate_out(0.8s, 0);
+      }
+      .text {
+        @include animate_out(0.9s, 0);
+      }
+    }
+  }
+
+  // App_page_1
+  &_1 {
+    .wrap_text {
+      max-width: 1200px;
+    }
+    ul {
+      li {
+        position: relative;
+        display: inline-block;
+        width: 25%;
+        min-height: 146px;
+        vertical-align: top;
+        margin-top: 80px;
+        margin-right: 5%;
+        @include animate_in(0.7s, 0);
+        @for $i from 1 to 7 {
+          &:nth-child(#{$i}) {
+            animation-delay: ($i * 0.05s) + 0.5s;
+          }
+        }
+        .graph {
+          position: absolute;
+          height: 150%;
+          bottom: 0;
+          width: 100%;
+          span {
+            position: absolute;
+            display: inline-block;
+            width: 100px;
+            bottom: 0;
+            background-color: #7448ff;
+            margin-right: 15px;
+            border-top: 2px solid $blue;
+            font-size: 20px;
+            text-align: center;
+            line-height: 2.5;
+            vertical-align: bottom;
+            @for $i from 0 to 3 {
+              &:nth-child(#{$i + 1}) {
+                left: $i * 120px;
+              }
+            }
+          }
+        }
+      }
+      p.sub_title {
+        position: relative;
+        padding-top: 35px;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 1.3;
+        width: 100%;
+        span {
+          color: $blue;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 2px;
+          top: 0;
+          left: 0;
+          background-color: $blue;
+        }
+      }
+      p {
+        padding-top: 20px;
+        font-size: 18px;
+        line-height: 1.7;
+        width: 170px;
+      }
+      li:nth-child(3n) {
+        p {
+          width: 100%;
+        }
+      }
+    }
+    &.close {
+      .main_title {
+        @include animate_out(0.5s, 0);
+      }
+      ul li {
+        @include animate_out(0.6s, 0);
+        @for $i from 1 to 7 {
+          &:nth-child(#{$i}) {
+            animation-delay: ($i * 0.05s);
+          }
+        }
+      }
+    }
+  }
+
+  // App_page_2
+  &_2 {
+    .wrap_content_01 {
+      position: absolute;
+      width: 50%;
+      max-width: 700px;
+      &.next {
+        .main_title {
+          @include animate_out(0.4s, 0);
+        }
+        .wrap_title {
+          @include animate_out(0.5s, 0);
+        }
+        .wrap_text {
+          @include animate_out(0.6s, 0);
+        }
+        .go_btn {
+          animation: buttonOutAniamte 0.3s;
+          animation-fill-mode: forwards;
+        }
+      }
+      &.end {
+        .wrap_title {
+          @include animate_in(0.6s, 0s);
+        }
+        .wrap_text {
+          @include animate_in(0.6s, 0.1s);
+        }
+        .go_btn {
+          animation: buttonInAniamte 0.3s;
+          animation-delay: 0.3s;
+          animation-fill-mode: forwards;
+        }
+      }
+    }
+
+    .preview {
+      position: relative;
+      width: calc(100% - 250px);
+      padding-left: 120px;
+      .wrap_title {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 80px;
+        margin-top: 40px;
+        @include animate_in(0.8s, 0.5s);
+        .icon {
+          position: absolute;
+          display: inline-block;
+          width: 80px;
+          height: 80px;
+          left: -120px;
+          border-radius: 10px;
+          background-color: rgba(255, 255, 255, 0.2);
+        }
+        .title {
+          font-size: 25px;
+          font-weight: 600;
+        }
+        .sub_title {
+          margin-top: 5px;
+        }
+      }
+      .wrap_text {
+        position: relative;
+        @include animate_in(1s, 0.5s);
+        .sub_text {
+          margin-top: 15px;
+          font-size: 18px;
+          font-weight: 600;
+          line-height: 1.5;
+          span {
+            color: $blue;
+          }
+        }
+
+        .text {
+          width: 450px;
+          width: 100%;
+          margin-top: 10px;
+          font-size: 18px;
+          line-height: 1.7;
+          max-height: 178px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 6;
+          text-overflow: ellipsis;
+          /* autoprefixer: ignore next */
+          -webkit-box-orient: vertical;
+        }
+      }
+      .go_btn {
+        position: relative;
+        display: inline-block;
+        background: #fff;
+        color: $purple;
+        width: 150px;
+        padding: 20px 0;
+        margin-top: 30px;
+        font-size: 15px;
+        font-weight: 600;
+        white-space: nowrap;
+        overflow: hidden;
+        clip-path: inset(0 100% 0 0);
+        animation: buttonInAniamte 0.3s;
+        animation-delay: 0.8s;
+        animation-fill-mode: forwards;
+      }
+
+      .wrap_post_btn {
+        position: fixed;
+        right: 5vh;
+        bottom: 5vh;
+        opacity: 0;
+        transition: opacity 1s;
+        z-index: -1;
+        .show_list_btn {
+          width: 30px;
+          height: 30px;
+          background: #fff;
+          color: transparent;
+        }
+        .prev_btn,
+        .next_btn {
+          width: 30px;
+          height: 30px;
+          margin-right: 15px;
+          color: transparent;
+          background: url("../img/arrow-pointing-to-right-white.svg") no-repeat center;
+          background-size: contain;
+        }
+        .prev_btn {
+          transform: rotate(180deg);
+        }
+        .lock {
+          opacity: 0.5;
+        }
+      }
+    }
+    &.open .wrap_content_02 {
+      animation: boxInAniamte_right $mainAnimateTime;
+      animation-fill-mode: forwards;
+      animation-timing-function: $Expo;
+    }
+
+    &.close .wrap_content_02 {
+      animation: boxOutAniamte_right $mainAnimateTime;
+      animation-fill-mode: forwards;
+      animation-timing-function: $Expo;
+    }
+
+    .wrap_content_02 {
+      position: absolute;
+      background: #fff;
+      width: 500px;
+      height: 90vh;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none; /* IE 10+ */
+      clip-path: inset(0 0 0 100%);
+      z-index: 10;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      ul {
+        position: relative;
+        padding: 5vh;
+        @include animate_in(1s, 0.3s);
+        li {
+          width: calc(100% - 80px);
+          padding: 35px 40px;
+          font-size: 18px;
+          font-weight: 600;
+          color: rgb(58, 58, 58);
+          white-space: nowrap;
+          transition: 0.5s;
+          cursor: pointer;
+          span {
+            margin-right: 50px;
+          }
+          &.active {
+            background: #fbfbfb;
+            color: $pink;
+            span {
+              color: transparent;
+              background: url("../img/arrow-pointing-to-right.svg") no-repeat center;
+              background-size: contain;
+            }
+          }
+          &:hover {
+            background: #fbfbfb;
+            color: $pink;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+    &.close {
+      .wrap_content_01 {
+        .main_title {
+          @include animate_out(0.5s, 0);
+        }
+        .wrap_title {
+          @include animate_out(0.7s, 0);
+        }
+        .wrap_text {
+          @include animate_out(0.9s, 0);
+        }
+        .go_btn {
+          animation: buttonOutAniamte 0.3s;
+          animation-fill-mode: forwards;
+        }
+        .wrap_post_btn {
+          opacity: 0;
+        }
+      }
+      ul {
+        @include animate_out(0, 0);
+      }
+    }
+  }
+}
+
+/*
+	firefox animate edit
+	(clip-path not working!)
+*/
+@-moz-document url-prefix() {
+  .App_page_main .wrap_content,
+  .App_page_2 .wrap_content_02 {
+    opacity: 0;
+  }
+  .App_page_main.open .wrap_content {
+    animation: boxFadeInAnimate 0.5s $Expo;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .App_page_main.close .wrap_content {
+    animation: boxFadeOutAnimate 0.5s $Expo;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.open .wrap_content_02 {
+    animation: boxFadeInAnimate 0.5s $Expo;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.close .wrap_content_02 {
+    animation: boxFadeOutAnimate 0.5s $Expo;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.open .preview .go_btn {
+    @include animate_in(1s, 0.6s);
+  }
+  .App_page_2.close .preview .go_btn {
+    @include animate_out(0.8s, 0.1s);
+  }
+  .App_page_2 .wrap_content_01.end .preview .go_btn {
+    @include animate_in(0.9s, 0.1s);
+  }
+  .App_page_2 .wrap_content_01.next .preview .go_btn {
+    @include animate_out(0.9s, 0s);
+  }
+}
+
+/*
+	IE animate edit
+	(clip-path not working!)
+*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .App_page_main .wrap_content,
+  .App_page_2 .wrap_content_02 {
+    opacity: 0;
+  }
+  .App_page_main.open .wrap_content {
+    animation: boxFadeInAnimate 0.5s $Expo;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .App_page_main.close .wrap_content {
+    animation: boxFadeOutAnimate 0.5s $Expo;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.open .wrap_content_02 {
+    animation: boxFadeInAnimate 0.5s $Expo;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.close .wrap_content_02 {
+    animation: boxFadeOutAnimate 0.5s $Expo;
+    animation-fill-mode: forwards;
+  }
+  .App_page_2.open .preview .go_btn {
+    @include animate_in(1s, 0.6s);
+  }
+  .App_page_2.close .preview .go_btn {
+    @include animate_out(0.8s, 0.1s);
+  }
+  .App_page_2 .wrap_content_01.end .preview .go_btn {
+    @include animate_in(0.9s, 0.1s);
+  }
+  .App_page_2 .wrap_content_01.next .preview .go_btn {
+    @include animate_out(0.9s, 0s);
+  }
+}
+
+/* 
+	반응형 스타일 (media query) 
+	#### 1: Laptops, Desktops 	 (/h 1025px to 1280px)
+	#### 2: Tablets, Ipads (/h 768px to 1024px)
+	#### 3: Low Resolution Tablets, Mobiles (/h 481px to 767px)
+	#### 4: Most of the Smartphones Mobiles (/h 320px to 479px)
+	#### 5: Low hieght / Laptops, Desktops, +++ (/w 1025px to xxx, /h xxx to 900px )
+	#### 6: Low hieght / Low Resolution Tablets, Mobiles ~ Tablets, Ipads (/w 481px to 1024px, /h xxx to 900px )
+*/
+
+/* 
+	#### 1
+	## Device = Laptops, Desktops
+	## Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .App_page_main .wrap_content {
+    width: 80vw !important;
+  }
+
+  .App_page_1 ul li .graph span {
+    width: 80px;
+  }
+  .App_page_1 ul li .graph span:nth-child(2) {
+    left: 100px;
+  }
+  .App_page_1 ul li .graph span:nth-child(3) {
+    left: 200px;
+  }
+
+  .App_page_2 .wrap_content_01 {
+    width: 50%;
+  }
+  .App_page_2 .wrap_content_02 {
+    width: 40% !important;
+  }
+}
+
+/* 
+	#### 2
+	## Device = Tablets, Ipads (landscape)
+	## Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  .App_page_main .wrap_content {
+    width: 80vw !important;
+  }
+  .App_page_1 ul p {
+    width: 100%;
+    font-size: 16px;
+  }
+  .App_page_1 ul li .graph span {
+    width: 40%;
+  }
+  .App_page_1 ul li .graph span:nth-child(2) {
+    left: 50%;
+  }
+  .App_page_1 ul li .graph span:nth-child(3) {
+    left: 100%;
+  }
+
+  .App_page_2 .wrap_content_01 {
+    width: 80%;
+  }
+  .App_page_2 .preview .wrap_post_btn {
+    display: flex;
+    opacity: 1;
+    z-index: 1;
+  }
+  .App_page_2 .preview .wrap_text .text {
+    font-size: 16px;
+  }
+
+  .App_page_2 .wrap_content_02 {
+    width: 100%;
+    display: none;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+  .App_page_2 .wrap_content_02.show {
+    display: block;
+    animation: boxInAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+  .App_page_2 .wrap_content_02.hide {
+    display: block;
+    animation: boxOutAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+}
+
+/* 
+	#### 3
+	## Device = Low Resolution Tablets, Mobiles (Landscape)
+	## Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  .App_page_main .wrap_content {
+    width: calc(100vw - 10vh) !important;
+  }
+  .App_page_main > .wrap_content > *,
+  .App_page_main .wrap_content_01 > *,
+  .App_page_1 > .wrap_content > *,
+  .App_page_1 .wrap_content_01 > *,
+  .App_page_2 > .wrap_content > *,
+  .App_page_2 .wrap_content_01 > * {
+    width: calc(100% - 10vh);
+    margin-left: 5vh;
+  }
+
+  .App_page_1 {
+    height: auto;
+    padding-top: calc(10vh + 80px);
+    padding-bottom: 80px;
+  }
+  .App_page_1 .main_title {
+    font-size: 45px;
+  }
+  .App_page_1 ul li {
+    width: 46%;
+    margin-top: 80px;
+    margin-right: 8%;
+  }
+  .App_page_1 ul li:nth-child(2n) {
+    margin-right: 0;
+  }
+  .App_page_1 ul li .graph span {
+    width: 30%;
+  }
+  .App_page_1 ul li .graph span:nth-child(2) {
+    left: 35%;
+  }
+  .App_page_1 ul li .graph span:nth-child(3) {
+    left: 70%;
+  }
+  .App_page_1 ul p {
+    width: 100%;
+  }
+
+  .App_page_2 .wrap_content_01 .main_title {
+    font-size: 45px;
+  }
+  .App_page_2 .wrap_content_01 {
+    width: 100%;
+  }
+  .App_page_2 .preview {
+    width: calc(100% - 10vh - 120px);
+    margin-left: 5vh;
+  }
+  .App_page_2 .preview .wrap_text .text {
+    font-size: 18px;
+  }
+  .App_page_2 .preview .wrap_post_btn {
+    display: flex;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .App_page_2.open .wrap_content_02,
+  .App_page_2.close .wrap_content_02 {
+    animation: none;
+    display: none;
+    width: 100%;
+    height: calc(100% - 50px);
+  }
+  .App_page_2 .wrap_content_02.show {
+    display: block;
+    animation: boxInAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+  .App_page_2 .wrap_content_02.hide {
+    display: block;
+    animation: boxOutAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+}
+
+/* 
+	#### 4
+	## Device = Most of the Smartphones Mobiles (Portrait)
+	## Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  .App_page_main,
+  .App_page_1,
+  .App_page_2 {
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    left: 5%;
+  }
+
+  .App_page_main .wrap_content {
+    width: 100% !important;
+  }
+  .App_page_main > .wrap_content > *,
+  .App_page_main .wrap_content_01 > *,
+  .App_page_1 > .wrap_content > *,
+  .App_page_1 .wrap_content_01 > *,
+  .App_page_2 > .wrap_content > *,
+  .App_page_2 .wrap_content_01 {
+    width: calc(100% - 18vw);
+    margin: 0 auto;
+    overscroll-behavior: none;
+  }
+
+  .App_page_main .title {
+    font-size: 30px;
+  }
+  .App_page_main .text {
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .App_page_1 {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  .App_page_1 .main_title {
+    font-size: 30px;
+  }
+  .App_page_1 ul li {
+    width: 46%;
+    margin-top: 80px;
+    margin-right: 8%;
+  }
+  .App_page_1 ul li:nth-child(2n) {
+    margin-right: 0;
+  }
+  .App_page_1 ul li .graph span {
+    width: 30%;
+    font-size: 13px;
+  }
+  .App_page_1 ul li .graph span:nth-child(2) {
+    left: 35%;
+  }
+  .App_page_1 ul li .graph span:nth-child(3) {
+    left: 70%;
+  }
+  .App_page_1 ul p.sub_title {
+    font-size: 20px;
+    padding-top: 25px;
+  }
+  .App_page_1 ul p {
+    width: 100%;
+    font-size: 15px;
+    padding-top: 10px;
+  }
+
+  .App_page_2 {
+    height: auto;
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+  .App_page_2 .wrap_content_01 {
+    position: relative;
+  }
+  .App_page_2 .wrap_content_01 .main_title {
+    font-size: 30px;
+    margin: 0;
+    width: 100%;
+  }
+  .App_page_2 .preview {
+    margin: 0 auto;
+    padding-left: 0;
+    width: 100%;
+  }
+  .App_page_2 .preview .wrap_title {
+    margin-top: 0;
+  }
+  .App_page_2 .preview .wrap_title .icon {
+    display: none;
+  }
+  .App_page_2 .preview .wrap_title .title {
+    font-size: 20px;
+  }
+  .App_page_2 .preview .wrap_title .sub_title {
+    font-size: 15px;
+  }
+  .App_page_2 .preview .wrap_text .sub_text {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+  .App_page_2 .preview .wrap_text .text {
+    margin-top: 0;
+    font-size: 15px;
+  }
+  .App_page_2 .preview .go_btn {
+    padding: 10px 0;
+  }
+  .App_page_2 .preview .wrap_post_btn {
+    display: flex;
+    right: 5%;
+    bottom: 5%;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .App_page_2.open .wrap_content_02,
+  .App_page_2.close .wrap_content_02 {
+    animation: none;
+    display: none;
+    width: 100%;
+    height: calc(75vh - 50px);
+    opacity: 0.85;
+  }
+  .App_page_2 .wrap_content_02.show {
+    display: block;
+    animation: boxInAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+  .App_page_2 .wrap_content_02.hide {
+    display: block;
+    animation: boxOutAniamte_right $mainAnimateTime;
+    animation-fill-mode: forwards;
+    animation-timing-function: $Expo;
+  }
+  .App_page_2 .wrap_content_02 ul {
+    padding: 20px;
+  }
+  .App_page_2 .wrap_content_02 ul li {
+    width: calc(100% - 80px);
+    padding: 25px 40px;
+    font-size: 15px;
+  }
+}
+
+/* 
+	#### 5
+	## Device = Low hieght / Laptops, Desktops ~ 
+	## Screen = B/w 1025px to xxx, B/h xxx to 900px 
+*/
+@media (min-width: 1025px) and (max-height: 900px) {
+  .App_page_1,
+  .App_page_2 {
+    height: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .App_page_2 .wrap_content_01 {
+    position: relative;
+  }
+  .App_page_2 .wrap_content_02 {
+    position: fixed;
+    top: 5vh;
+    right: 5vh;
+    height: calc(90%);
+  }
+}
+
+/* 
+	#### 6
+	## Device = Low hieght / Low Resolution Tablets, Mobiles ~ Tablets, Ipads
+	## Screen = B/w 481px to 1024px, B/h xxx to 900px 
+*/
+@media (min-width: 481px) and (max-width: 1024px) and (max-height: 900px) {
+  .App_page_1,
+  .App_page_2 {
+    height: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .App_page_2 .wrap_content_01 {
+    position: relative;
+  }
+  .App_page_2 .wrap_content_02 {
+    position: fixed;
+    top: 5vh;
+    right: 5vh;
+    width: calc(100% - 10vh) !important;
+    height: calc(90% - 50px) !important;
+    opacity: 0.85;
+  }
+}
+
+/*
+	애니메이션 프레임
+*/
+@keyframes boxInAniamte {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes boxOutAniamte {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes boxInAniamte_right {
+  0% {
+    clip-path: inset(0 0 0 100%);
+    z-index: -1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+    z-index: 10;
+  }
+}
+
+@keyframes boxOutAniamte_right {
+  0% {
+    clip-path: inset(0 0 0 0);
+    z-index: 10;
+  }
+  85% {
+    clip-path: inset(0 0 0 100%);
+  }
+  100% {
+    z-index: -1;
+  }
+}
+
+@keyframes boxFadeInAnimate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes boxFadeOutAnimate {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes textOutAniamte {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -80px;
+    opacity: 0;
+  }
+}
+
+@keyframes textInAniamte {
+  from {
+    top: 100px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes buttonOutAniamte {
+  from {
+    clip-path: inset(0 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes buttonInAniamte {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes graphInAniamte {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: auto;
+  }
+}
+
+@keyframes buttonNextAniamte {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 100%);
+  }
+  51% {
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 0%);
+  }
+}

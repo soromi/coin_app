@@ -1,46 +1,44 @@
 export const simpleAction = () => dispatch => {
-    dispatch({
-        type: "SIMPLE_ACTION",
-        payload: "simple action"
-    })
-}
+  dispatch({
+    type: "SIMPLE_ACTION",
+    payload: "simple action",
+  });
+};
 
 export const setPageHome = () => dispatch => {
-    dispatch({
-        type: "SET_PAGE_HOME",
-        payload: "home"
-    })
-}
+  dispatch({
+    type: "SET_PAGE_HOME",
+    payload: "home",
+  });
+};
 
 export const setPagePage1 = () => dispatch => {
-    dispatch({
-        type: "SET_PAGE_PAGE1",
-        payload: "page1"
-    })
-}
+  dispatch({
+    type: "SET_PAGE_PAGE1",
+    payload: "page1",
+  });
+};
 
 export const setPagePage2 = () => dispatch => {
-    dispatch({
-        type: "SET_PAGE_PAGE2",
-        payload: "page2"
-    })
-}
-
+  dispatch({
+    type: "SET_PAGE_PAGE2",
+    payload: "page2",
+  });
+};
 
 export const aniamteStart = () => dispatch => {
-    dispatch({
-        type: "ANIMATE_START",
-        payload: "¤·¤µ¤·",
-    })
-}
+  dispatch({
+    type: "ANIMATE_START",
+    payload: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+  });
+};
 
 export const aniamteEnd = () => dispatch => {
-    dispatch({
-        type: "ANIMATE_END",
-        payload: "¤·¤µ¤·",
-    })
-}
+  dispatch({
+    type: "ANIMATE_END",
+    payload: "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",
+  });
+};
 
-
-// ¾Ö´Ï¸ÞÀÌ¼Ç ÄÝ¹é µÇ¸é
-// currentPage°ª »©°í hide, ÇØ´ç url Àû¿ë
+// ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ý¹ï¿½ ï¿½Ç¸ï¿½
+// currentPageï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ hide, ï¿½Ø´ï¿½ url ï¿½ï¿½ï¿½ï¿½
