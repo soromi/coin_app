@@ -1,17 +1,15 @@
 {
-  "files": {
-    "main.css": "/coin_app/static/css/main.be9de4cc.chunk.css",
-    "main.js": "/coin_app/static/js/main.81ce4070.chunk.js",
-    "main.js.map": "/coin_app/static/js/main.81ce4070.chunk.js.map",
-    "runtime~main.js": "/coin_app/static/js/runtime~main.86821510.js",
-    "runtime~main.js.map": "/coin_app/static/js/runtime~main.86821510.js.map",
-    "static/js/2.83008645.chunk.js": "/coin_app/static/js/2.83008645.chunk.js",
-    "static/js/2.83008645.chunk.js.map": "/coin_app/static/js/2.83008645.chunk.js.map",
-    "index.html": "/coin_app/index.html",
-    "precache-manifest.e5a38bff5ebaf635455c1cb1d5f5c37b.js": "/coin_app/precache-manifest.e5a38bff5ebaf635455c1cb1d5f5c37b.js",
-    "service-worker.js": "/coin_app/service-worker.js",
-    "static/css/main.be9de4cc.chunk.css.map": "/coin_app/static/css/main.be9de4cc.chunk.css.map",
-    "static/media/Pages.scss": "/coin_app/static/media/arrow-pointing-to-right.076cbc0b.svg",
-    "static/media/App.scss": "/coin_app/static/media/manrope-thin.f2c22360.woff2"
-  }
+  "main.css": "/201903_react_app/static/css/main.0a39eaf9.chunk.css",
+  "main.js": "/201903_react_app/static/js/main.e9df9970.chunk.js",
+  "main.js.map": "/201903_react_app/static/js/main.e9df9970.chunk.js.map",
+  "runtime~main.js": "/201903_react_app/static/js/runtime~main.d9a34477.js",
+  "runtime~main.js.map": "/201903_react_app/static/js/runtime~main.d9a34477.js.map",
+  "static/js/2.7e7bf967.chunk.js": "/201903_react_app/static/js/2.7e7bf967.chunk.js",
+  "static/js/2.7e7bf967.chunk.js.map": "/201903_react_app/static/js/2.7e7bf967.chunk.js.map",
+  "index.html": "/201903_react_app/index.html",
+  "precache-manifest.2c8264fa686e708adb41b807fb88bd60.js": "/201903_react_app/precache-manifest.2c8264fa686e708adb41b807fb88bd60.js",
+  "service-worker.js": "/201903_react_app/service-worker.js",
+  "static/css/main.0a39eaf9.chunk.css.map": "/201903_react_app/static/css/main.0a39eaf9.chunk.css.map",
+  "static/media/Pages.scss": "/201903_react_app/static/media/arrow-pointing-to-right.076cbc0b.svg",
+  "static/media/App.scss": "/201903_react_app/static/media/manrope-thin.f2c22360.woff2"
 }
