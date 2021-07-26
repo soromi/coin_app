@@ -19,7 +19,7 @@ const Page1 = ({ currentPage }) => {
   }, [currentPage]);
 
   return (
-    <div className="App_page_1 close" ref={containerDom}>
+    <div className="App_page_1" ref={containerDom}>
       <div className="wrap_content">
         <h1 className="main_title">Token Distribution</h1>
         <div className="wrap_text">

@@ -27,7 +27,7 @@ const App = () => {
         setCurrentPage(1);
         break;
 
-      case "/trending":
+      case "/ico":
         setCurrentPage(2);
         break;
 
@@ -48,7 +48,7 @@ const App = () => {
   const _page_move = () => {
     setTimeout(() => {
       setAnimateIng(false);
-    }, 1000);
+    }, 800);
   };
 
   return (

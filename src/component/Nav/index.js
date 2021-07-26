@@ -27,11 +27,11 @@ const Nav = ({ currentPage, animateIng, changeCurrnetPage }) => {
         </li>
         <li>
           {!animateIng ? (
-            <Link to="trending" onClick={() => changeCurrnetPage(2)}>
-              What's Trending
+            <Link to="ico" onClick={() => changeCurrnetPage(2)}>
+              ICO List
             </Link>
           ) : (
-            "What's Trending"
+            "ICO List"
           )}
         </li>
       </ul>

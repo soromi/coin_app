@@ -7,7 +7,7 @@ $purple: #7c1cff;
 $black: rgb(58, 58, 58);
 
 /* easing */
-$mainAnimateTime: 0.7s;
+$mainAnimateTime: 0.8s;
 $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
 
 /* mixin common text aniamtion  */
@@ -101,7 +101,7 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       font-size: 60px;
       font-weight: 700;
       line-height: 1.4;
-      @include animate_in(0.8s, 0.3s);
+      @include animate_in(0.3s, 0.3s);
       span {
         color: $pink;
       }
@@ -112,14 +112,14 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       margin-top: 20px;
       font-size: 18px;
       line-height: 1.7;
-      @include animate_in(0.8s, 0.4s);
+      @include animate_in(0.4s, 0.3s);
     }
     &.close {
       .title {
-        @include animate_out(0.8s, 0);
+        @include animate_out(0.5s, 0);
       }
       .text {
-        @include animate_out(0.9s, 0);
+        @include animate_out(0.6s, 0);
       }
     }
   }
@@ -138,7 +138,7 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
         vertical-align: top;
         margin-top: 80px;
         margin-right: 5%;
-        @include animate_in(0.7s, 0);
+        @include animate_in(0.5s, 0);
         @for $i from 1 to 7 {
           &:nth-child(#{$i}) {
             animation-delay: ($i * 0.05s) + 0.5s;
@@ -225,13 +225,13 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       max-width: 700px;
       &.next {
         .main_title {
-          @include animate_out(0.4s, 0);
+          @include animate_out(0.3s, 0);
         }
         .wrap_title {
-          @include animate_out(0.5s, 0);
+          @include animate_out(0.4s, 0);
         }
         .wrap_text {
-          @include animate_out(0.6s, 0);
+          @include animate_out(0.5s, 0);
         }
         .go_btn {
           animation: buttonOutAniamte 0.3s;
@@ -240,10 +240,10 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       }
       &.end {
         .wrap_title {
-          @include animate_in(0.6s, 0s);
+          @include animate_in(0.4s, 0s);
         }
         .wrap_text {
-          @include animate_in(0.6s, 0.1s);
+          @include animate_in(0.5s, 0.1s);
         }
         .go_btn {
           animation: buttonInAniamte 0.3s;
@@ -264,7 +264,7 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
         justify-content: center;
         height: 80px;
         margin-top: 40px;
-        @include animate_in(0.8s, 0.5s);
+        @include animate_in(0.5s, 0.5s);
         .icon {
           position: absolute;
           display: inline-block;
@@ -273,6 +273,8 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
           left: -120px;
           border-radius: 10px;
           background-color: rgba(255, 255, 255, 0.2);
+          background-size: cover !important;
+          background-position: center !important;
         }
         .title {
           font-size: 25px;
@@ -284,7 +286,7 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       }
       .wrap_text {
         position: relative;
-        @include animate_in(1s, 0.5s);
+        @include animate_in(0.8s, 0.5s);
         .sub_text {
           margin-top: 15px;
           font-size: 18px;
@@ -326,6 +328,7 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
         animation: buttonInAniamte 0.3s;
         animation-delay: 0.8s;
         animation-fill-mode: forwards;
+        text-align: center;
       }
 
       .wrap_post_btn {
@@ -386,10 +389,47 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
       &::-webkit-scrollbar {
         display: none;
       }
-      ul {
+      %gray_button {
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 5px 10px;
+        margin-right: 10px;
+        transition: 0.2s;
+        color: #3a3a3a;
+      }
+      .wrap_filter {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        backdrop-filter: blur(1px);
+        background: rgb(255, 255, 255);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+        padding: 5vh;
+        display: flex;
+        flex-direction: column;
+        grid-gap: 10px;
+        button {
+          @extend %gray_button;
+          &.active {
+            color: #ff405c;
+          }
+        }
+      }
+      .null {
+        font-size: 15px;
+        line-height: 2;
+        color: #3a3a3a;
+        button {
+          @extend %gray_button;
+          margin-top: 10px;
+        }
+      }
+      ul,
+      .null {
         position: relative;
         padding: 5vh;
-        @include animate_in(1s, 0.3s);
+        padding-top: 0;
+        @include animate_in(0.5s, 0.4s);
         li {
           width: calc(100% - 80px);
           padding: 35px 40px;
@@ -422,13 +462,13 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
     &.close {
       .wrap_content_01 {
         .main_title {
-          @include animate_out(0.5s, 0);
+          @include animate_out(0.4s, 0);
         }
         .wrap_title {
-          @include animate_out(0.7s, 0);
+          @include animate_out(0.6s, 0);
         }
         .wrap_text {
-          @include animate_out(0.9s, 0);
+          @include animate_out(0.8s, 0);
         }
         .go_btn {
           animation: buttonOutAniamte 0.3s;
@@ -850,8 +890,16 @@ $Expo: cubic-bezier(0.9, 0, 0.33, 0.94);
     animation-fill-mode: forwards;
     animation-timing-function: $Expo;
   }
+  .App_page_2 .wrap_content_02 .wrap_filter {
+    padding: 20px;
+  }
+  .App_page_2 .wrap_content_02 .wrap_filter button {
+    font-size: 15px;
+  }
+  .App_page_2 .wrap_content_02 .null,
   .App_page_2 .wrap_content_02 ul {
     padding: 20px;
+    padding-top: 0;
   }
   .App_page_2 .wrap_content_02 ul li {
     width: calc(100% - 80px);
