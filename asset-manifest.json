@@ -1,15 +1,15 @@
 {
-  "main.css": "/coin_app/static/css/main.69f9669b.chunk.css",
-  "main.js": "/coin_app/static/js/main.38d91d0c.chunk.js",
-  "main.js.map": "/coin_app/static/js/main.38d91d0c.chunk.js.map",
+  "main.css": "/coin_app/static/css/main.297385c1.chunk.css",
+  "main.js": "/coin_app/static/js/main.b2758fe3.chunk.js",
+  "main.js.map": "/coin_app/static/js/main.b2758fe3.chunk.js.map",
   "runtime~main.js": "/coin_app/static/js/runtime~main.73244062.js",
   "runtime~main.js.map": "/coin_app/static/js/runtime~main.73244062.js.map",
   "static/js/2.7e7bf967.chunk.js": "/coin_app/static/js/2.7e7bf967.chunk.js",
   "static/js/2.7e7bf967.chunk.js.map": "/coin_app/static/js/2.7e7bf967.chunk.js.map",
   "index.html": "/coin_app/index.html",
-  "precache-manifest.392a4f798db171adfa613280e4d082cf.js": "/coin_app/precache-manifest.392a4f798db171adfa613280e4d082cf.js",
+  "precache-manifest.c4864cde7a2da6d23347f64b6c74fa19.js": "/coin_app/precache-manifest.c4864cde7a2da6d23347f64b6c74fa19.js",
   "service-worker.js": "/coin_app/service-worker.js",
-  "static/css/main.69f9669b.chunk.css.map": "/coin_app/static/css/main.69f9669b.chunk.css.map",
+  "static/css/main.297385c1.chunk.css.map": "/coin_app/static/css/main.297385c1.chunk.css.map",
   "static/media/Pages.scss": "/coin_app/static/media/arrow-pointing-to-right.076cbc0b.svg",
   "static/media/App.scss": "/coin_app/static/media/manrope-thin.f2c22360.woff2"
 }
