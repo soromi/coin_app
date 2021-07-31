@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 import Nav from "./component/Nav";
 import Home from "./pages/Home";
@@ -17,7 +17,7 @@ const App = () => {
   }, []);
 
   const _checkPage = () => {
-    switch (window.location.pathname) {
+    switch (window.location.pathname.replace("/coin_app", "")) {
       case "/":
       case "/about":
         setCurrentPage(0);
@@ -52,7 +52,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <HashRouter>
       <div className="App">
         <Nav currentPage={currentPage} animateIng={animateIng} changeCurrnetPage={_changeCurrnetPage} />
         {(animateIng && prevPage === 0) || currentPage === 0 ? <Home currentPage={currentPage} /> : null}
@@ -60,7 +60,7 @@ const App = () => {
         {(animateIng && prevPage === 2) || currentPage === 2 ? <Page2 currentPage={currentPage} /> : null}
         {currentPage === -1 ? <NotFound /> : null}
       </div>
-    </Router>
+    </HashRouter>
   );
 };
 
