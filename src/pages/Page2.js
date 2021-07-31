@@ -3,7 +3,7 @@ import useCoinList from "../hooks/useCoinList";
 import List from "../component/ICO/List";
 
 const Page2 = ({ currentPage }) => {
-  const { coinList, coinDetail, getCoinList, getCoinDetail } = useCoinList();
+  const { coinList, coinDetail, getCoinList, getCoinDetail, setFilter } = useCoinList();
   const containerDom = useRef();
   const contentDom = useRef();
   const listDom = useRef();
@@ -15,12 +15,18 @@ const Page2 = ({ currentPage }) => {
   const [showList, setShowList] = useState(false);
 
   useEffect(() => {
+    // 카테고리 OR 태그 선택시 리스트 index 초기화
+    setCurrentPostIndex(0);
+  }, [status, tag]);
+
+  useEffect(() => {
+    // 카테고리 변경시 api 재호출 및 필터 초기화
     getCoinList({ status, tag });
     setTag("all");
-    setCurrentPostIndex(0);
   }, [status]);
 
   useEffect(() => {
+    // 코인 상세 불러오기
     if (coinList.length === 0) return;
     getCoinDetail(currentPostIndex);
   }, [currentPostIndex]);
@@ -105,7 +111,8 @@ const Page2 = ({ currentPage }) => {
                     : "---"}
                 </span>
               </p>
-              <p className="text">{coinDetail.description}</p>
+              <p className="desc">{coinDetail.description}</p>
+              <button className="btn_more">{`> more`}</button>
             </div>
             <a
               className="go_btn"
@@ -139,6 +146,7 @@ const Page2 = ({ currentPage }) => {
         _changePost={_changePost}
         coinList={coinList}
         currentPostIndex={currentPostIndex}
+        setFilter={setFilter}
         setStatus={setStatus}
         status={status}
         setTag={setTag}

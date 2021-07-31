@@ -31,7 +31,7 @@ const filterObj = {
   ],
 };
 
-const List = ({ listDom, _changePost, coinList, currentPostIndex, setStatus, status, setTag, tag }) => {
+const List = ({ listDom, _changePost, coinList, currentPostIndex, setFilter, setStatus, status, setTag, tag }) => {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -39,19 +39,13 @@ const List = ({ listDom, _changePost, coinList, currentPostIndex, setStatus, sta
   }, [coinList]);
 
   useEffect(() => {
-    let tagName;
-    if (tag === "bsc") tagName = "Binance Smart Chain";
-    else if (tag === "eth") tagName = "Ethereum";
-
-    if (tagName) {
-      setList(coinList.filter(v => (v.crypto.contracts || []).filter(v => v.name === tagName).length));
-    }
+    setFilter(tag);
   }, [tag]);
 
   const clearFilter = () => {
-	  setStatus("Ongoing")
-	  setTag("all")
-  }
+    setStatus("Ongoing");
+    setTag("all");
+  };
 
   return (
     <div className="wrap_content_02" ref={listDom}>
@@ -79,7 +73,7 @@ const List = ({ listDom, _changePost, coinList, currentPostIndex, setStatus, sta
         <ul>
           {list.map((v, i) => {
             const className = currentPostIndex === i ? "active" : "";
-            const index = i < 9 ? "0" + (i + 1) : i;
+            const index = i < 9 ? "0" + (i + 1) : i + 1;
             return (
               <li
                 // key={v.cryptoId}
